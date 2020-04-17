@@ -2,14 +2,13 @@
   .side-ber__user-name 
     .side-ber__user-name__top-items
       .side-ber__user-name__top-items__name
-        masa
+        = current_user.name
       .side-ber__user-name__top-items__icons
       = link_to "#",class: "side-ber__user-name__top-items__icons__new-group" do
         = icon("far","edit")
         
-
-      = link_to "#",class: "side-ber__user-name__top-items__icons__account" do
-        = icon("fas","cog")
+      = link_to edit_user_path(current_user) do
+        = icon("fas", "cog")
         
 
   .side-ber__group-list
@@ -25,3 +24,6 @@
         techcamp
       .side-ber__group-list__chat-information__have-messege
         まだメッセージはありません
+
+        -# = link_to "#",class: "side-ber__user-name__top-items__icons__account" do
+        -# = icon("fas","cog")
