@@ -4,7 +4,7 @@
       .side-ber__user-name__top-items__name
         masa
       .side-ber__user-name__top-items__icons
-      = link_to "#",class: "side-ber__user-name__top-items__icons__new-group" do
+      = link_to new_group_path do
         = icon("far","edit")
         
 
@@ -13,15 +13,11 @@
         
 
   .side-ber__group-list
-    .side-ber__group-list__chat-information
-
-      .side-ber__group-list__chat-information__group-name
-        techcamp
-      .side-ber__group-list__chat-information__have-messege
-        まだメッセージはありません
+    - current_user.groups.each do |group|
+      .side-ber__group-list__chat-information
+        = link_to '#' do
+          .side-ber__group-list__chat-information__group-name
+            = group.name
+          .side-ber__group-list__chat-information__have-messege
+            まだメッセージはありません
   
-    .side-ber__group-list__chat-information
-      .side-ber__group-list__chat-information__group-name
-        techcamp
-      .side-ber__group-list__chat-information__have-messege
-        まだメッセージはありません
