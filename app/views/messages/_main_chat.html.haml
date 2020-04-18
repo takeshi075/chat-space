@@ -28,13 +28,22 @@
 
 
   .main-chat__message-form
-    .main-chat__message-form__box
+    = form_for [@group,@message] do |f|
+      = f.text_field :content,class:"main-chat__message-form__box__text-image__text",placeholder:"type a message"
       .main-chat__message-form__box__text-image
-        %input{type:"text",class:"main-chat__message-form__box__text-image__text",placeholder:"type a message"}
-        %label{class:"main-chat__message-form__box__text-image__image"}
+        = f.label :image,class:"main-chat__message-form__box__text-image__image" do
           =icon("far","image")
-          %input{type:"file",class:"main-chat__message-form__box__text-image__image__a"}
-    .main-chat__message-form__send-btn
-      send
+          = f.file_field :image,class:"main-chat__message-form__box__text-image__image__a"
+      = f.submit "send", class:"main-chat__message-form__send-btn"
+      
     
-
+  
+  -# .main-chat__message-form
+  -#   .main-chat__message-form__box
+  -#     .main-chat__message-form__box__text-image
+  -#       %input{type:"text",class:"main-chat__message-form__box__text-image__text",placeholder:"type a message"}
+  -#       %label{class:"main-chat__message-form__box__text-image__image"}
+  -#         =icon("far","image")
+  -#         %input{type:"file",class:"main-chat__message-form__box__text-image__image__a"}
+  -#   .main-chat__message-form__send-btn
+  -#     send
