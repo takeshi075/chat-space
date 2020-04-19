@@ -2,29 +2,29 @@
   .main-chat__group-info
     .main-chat__group-info__name
       .main-chat__group-info__name__group
-        test
+        = @group.name
       .main-chat__group-info__name__member
-        Member : masa 
-    = link_to "#",class:"main-chat__group-info__edit" do
-      Edit
-      
-  .main-chat__message-list
-    .main-chat__message-list__list
-      .main-chat__message-list__list__name-time
-        .main-chat__message-list__list__name-time_name
-          masa
-        .main-chat__message-list__list__name-time__time
-          2020/04/15
-      .main-chat__message-list__list__text
-        おはよう
+        member :
+        - @group.users.each do |member|
+          = member.name
+          
+    .main-chat__group-info__edit
+      = link_to edit_group_path(@group) do
+        edit
 
-      .main-chat__message-list__list__name-time
-        .main-chat__message-list__list__name-time_name
-          masa
-        .main-chat__message-list__list__name-time__time
-          2020/04/15
-      .main-chat__message-list__list__text
-        おはよう
+  .main-chat__message-list
+    - @messages.each do |message|
+      .main-chat__message-list__list
+        .main-chat__message-list__list__name-time
+          .main-chat__message-list__list__name-time_name
+            =message.user.name
+          .main-chat__message-list__list__name-time__time
+            = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+        .main-chat__message-list__list__text
+          - if message.content.present?
+            = message.content
+          = image_tag message.image.url, class: "lower-message__imge" if message.image.present?
+
 
 
   .main-chat__message-form
@@ -32,18 +32,6 @@
       = f.text_field :content,class:"main-chat__message-form__box__text-image__text",placeholder:"type a message"
       .main-chat__message-form__box__text-image
         = f.label :image,class:"main-chat__message-form__box__text-image__image" do
-          =icon("far","image")
+          = icon("far","image")
           = f.file_field :image,class:"main-chat__message-form__box__text-image__image__a"
       = f.submit "send", class:"main-chat__message-form__send-btn"
-      
-    
-  
-  -# .main-chat__message-form
-  -#   .main-chat__message-form__box
-  -#     .main-chat__message-form__box__text-image
-  -#       %input{type:"text",class:"main-chat__message-form__box__text-image__text",placeholder:"type a message"}
-  -#       %label{class:"main-chat__message-form__box__text-image__image"}
-  -#         =icon("far","image")
-  -#         %input{type:"file",class:"main-chat__message-form__box__text-image__image__a"}
-  -#   .main-chat__message-form__send-btn
-  -#     send
