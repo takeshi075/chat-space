@@ -3,6 +3,8 @@
 }
 .wrapper {
  display: flex ;
+ width:100vw;
+ height:100vh;
 }
   
 .side-ber {
@@ -35,15 +37,11 @@
       width:60px;
       margin-left: auto;
 
-      &__new-group {
-      color: #ffffff;
-      margin-right: 5px;
-
-      }
-      &__account {
-      color: #ffffff; 
-      
-      }
+        a {
+        color: #ffffff;
+        margin-right: 5px;
+        text-decoration: none;
+        }
       }
       
       }
@@ -52,6 +50,7 @@
   &__group-list {
     background-color: #2f3e51;
     height:calc(100vh - 100px); 
+    overflow: scroll;
     &__chat-information {
       background-color: #2f3e51;
       height: 91px;
@@ -98,7 +97,6 @@
     }
 
     &__edit {
-      color:#38aef0;
       border:#38aef0 solid 1px;
       font-size: 16px;
       line-height: 40px;
@@ -106,8 +104,12 @@
       margin-top:28px;
       position: absolute;
       right:40px;
-      text-decoration:none;
+      
+      a {
+        color:#38aef0;
+        text-decoration:none;
 
+      }
     }
   }
 
@@ -117,6 +119,7 @@
     width:calc(100vw - 300px);
     border-top:solid;
     border-color:#eeeeee;
+    overflow: scroll;
 
 
       &__list {
@@ -153,13 +156,15 @@
     width:calc(100vw - 300px);
     display: flex;
     padding:20px 40px;
-  
-    &__box {
+
+    .new_message {
       display: flex;
       width:100%;
+    }
+  
+    &__box {
       
       &__text-image {
-        width:100%;
         display: flex;
         position: relative;
         border:none; 
