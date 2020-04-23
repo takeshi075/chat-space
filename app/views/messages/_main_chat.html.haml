@@ -14,7 +14,7 @@
 
   .main-chat__message-list
     - @messages.each do |message|
-      .main-chat__message-list__list
+      .main-chat__message-list__list{data: {message: {id: message.id}}}
         .main-chat__message-list__list__name-time
           .main-chat__message-list__list__name-time_name
             =message.user.name
