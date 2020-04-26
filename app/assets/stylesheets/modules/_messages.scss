@@ -11,6 +11,7 @@
   background-color: #2f3e51;
   height: 100vh;
   width: 300px;
+  text-decoration: none;
   
   &__user-name {
     background-color: #253141;
@@ -56,18 +57,26 @@
       height: 91px;
       padding:20px 20px 0px;
 
+
       &__group-name{
         color: #ffffff;
         font-size: 15px;
+      
       
 
       }
       &__have-messege {
         color: #ffffff;
         font-size:11px;
-        margin: 0px 20px 40px 20px;
+        margin: 0px 20px 40px 20px; 
 
       }
+
+      a {
+        text-decoration: none;
+
+      }
+
     }
   }
 
