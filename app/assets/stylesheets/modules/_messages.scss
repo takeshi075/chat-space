@@ -165,6 +165,7 @@
     width:calc(100vw - 300px);
     display: flex;
     padding:20px 40px;
+    
 
     .new_message {
       display: flex;
@@ -180,6 +181,7 @@
 
         &__text {
           width:100%;
+          border-style: none;
 
         }
         &__image {
